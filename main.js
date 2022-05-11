@@ -1,81 +1,57 @@
-const saludar = () => {
-  let nombre;
+let divClases = document.getElementById("clases")
+let formulario = document.getElementById('form')
+let alumnoNuevo = []
+let divConfirm = document.getElementById("confirm")
 
-  do {
-    nombre = prompt("Gym New Life, ingrese su nombre");
-  } while(nombre === "" || !isNaN(nombre));
-  alert(`Hola ${nombre}`);
-  console.log(`Hola ${nombre}`);
-};
-const verActividades = () => {
-  let gymAct = parseInt(prompt(`¿Que actividad queres realizar? Seleccione el nº:\n 1) Crossfit\n 2) Zumba\n 3) Localizada\n 4) Sala de aparatos  `));
-    while( gymAct>4 || gymAct <1){
-      gymAct = parseInt(
-        prompt(`¿Que actividad queres realizar? Seleccione el nº:\n 1) Crossfit\n 2) Zumba\n 3) Localizada\n 4) Sala de aparatos  `)
-        );
-    }
-    
-    let auxAct2;
-    switch(gymAct) {
-      case 1:
-        auxAct2 = "Crossfit"
-        break
-        case 2: 
-        auxAct2 = "Zumba"
-        break
-        case 3:
-          auxAct2 = " Localizada"
-        break
-        case 4: 
-        auxAct2: "Sala de aparatos"
-        break
-    }
-    return auxAct2;
-};
-
-const valorCuota = (actividad) => {
-  if(actividad == "Crossfit") {
-    return 2500;
-  } else if ( actividad == "Zumba"){
-    return 1400;
-  } else if ( actividad == "Localizada") {
-    return 1800;
-  } else {
-    return 2000;
-  }
-};
-
-saludar();
-let actSeleccionada = verActividades ();
-let cuota = valorCuota (actSeleccionada);
-alert( `El precio mensual de su clase es $ ${cuota}`); 
-/*
-class Actividades{
-  constructor (nombre, duracion, frecuenciaSemanal, profesor) {
+class Actividades {
+  constructor(id, nombre, duracion, frecuenciaSemanal, precio) {
+  this.id = id 
   this.nombre = nombre
   this.duracion = duracion
   this.frecuenciaSemanal = frecuenciaSemanal
-  this.profesor = profesor
+  this.precio = precio}
 }
-}
-const actividad1 = new Actividades("Crossfit", "libre", "libre", "Fernando")
-const actividad2 = new Actividades("Zumba", "60min", "3 veces por semana", "Lorena" )
-const actividad3 = new Actividades("Localizada", "60min", "3 veces por semana", "Gimena" )
-const actividad4 = new Actividades("Sala de aparatos", "libre", "libre", "Jorge" )
-const actividad5 = new Actividades(prompt("nombre actividad"), prompt("Ingrese duracion"), prompt("Ingrese frecuencia semanal"), prompt("Ingrese nombre de profesor") )
+const actividad1 = new Actividades("1", "crossfit", "libre", "libre", "2500")
+const actividad2 = new Actividades("2", "zumba", "60min", "3 veces por semana", "2000" )
+const actividad3 = new Actividades("3", "localizada", "60min", "3 veces por semana", "2300" )
+const actividad4 = new Actividades("4", "sala de aparatos", "libre", "libre", "1900" )
 
-let array = [actividad1, actividad2, actividad3, actividad4]
+let actividad = [actividad1, actividad2, actividad3, actividad4]
 
-for(let i = 0; i < array.length; i++){
- console.log(array[i])
-}*/
+actividad.forEach(clases => {
+  divClases.innerHTML +=`
+  
+  <div class="card" "clas" "row conteiner" style="width: 18rem;">
+  
+  <div class="card-body">
+    <h5 class="card-title">Nombre: ${clases.nombre}</h5>
+    <p class="card-text"><p> Duracion: ${clases.duracion} </p>
+    <p> Frecuencia Semanal: ${clases.frecuenciaSemanal} </p>
+    <p> Precio: $${clases.precio} </p>
+  </div>
+</div>
+  `
+})
 
-let alumnos = ["Juan Acosta", "Sofia Lopez", "Jorge Perez", "Lalo Landa", "Samuel Rodriguez" ]
-
-alumnos.push(prompt("Indica nombre y apellido para confirmar su inscripcion"))
-
-for( let i = 0; i < alumnos.length; i++)[
-  console.log(alumnos[i])
-]
-console.log("Listado de alumnos")
-console.log(alumnos.join("\n"))
+formulario.addEventListener('submit', (event) =>{
+  event.preventDefault()
+  let nombre = document.getElementById('formNombre').value
+  let apellido = document.getElementById('formApellido').value
+  let seleccion = document.getElementById('actSelecionada').value
+  let alumnos = {nombre: nombre, apellido: apellido, seleccion: seleccion}
+  alumnoNuevo.push(alumnos)
+  console.log(alumnoNuevo)
+  
+})
+alumnoNuevo.forEach(inscripcion => {
+  divConfirm.innerHTML += `
+  <div class="card" "row conteiner" style="width: 18rem;">
+  
+  <div class="card-body">
+    <h5 class="card-title">Nombre: ${inscripcion.nombre}</h5>
+    <p class="card-text"><p> Duracion: ${inscripcion.apellido} </p>
+    <p> Frecuencia Semanal: ${inscripcion.seleccion} </p>
+  </div>
+</div>
+  `
+})

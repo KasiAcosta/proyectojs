@@ -1,27 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 *{margin:0 ;
 padding: 0;}
 
 body{
-    font-family: 'Press Start 2P', cursive;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, cursive;
     font-size: 100%;
     text-align: center;
 
 }
 header{
+    text-align: center;
  padding: 5%;
  background-color: rgb(208, 255, 0);
 }
-H2{
-    padding: 5%;
+h2{
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
-img{
-    padding: 5%;
-    display: block;
-    margin: auto;
+.clas{
+    background-color: rgba(223, 247, 239, 0.336);
+   
 }
+
 footer{
-    background-color: mediumspringgreen;
+    background-color: black;
     padding: 5%;
 }
