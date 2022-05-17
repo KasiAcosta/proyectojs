@@ -1,7 +1,9 @@
 let divClases = document.getElementById("clases")
 let formulario = document.getElementById('form')
-let alumnoNuevo = []
 let divConfirm = document.getElementById("confirm")
+let nuevaSusc = []
+
+
 
 class Actividades {
   constructor(id, nombre, duracion, frecuenciaSemanal, precio) {
@@ -21,11 +23,11 @@ let actividad = [actividad1, actividad2, actividad3, actividad4]
 actividad.forEach(clases => {
   divClases.innerHTML +=`
   
-  <div class="card" "clas" "row conteiner" style="width: 18rem;">
+  <div class="card clas row conteiner" style="width: 18rem;">
   
   <div class="card-body">
     <h5 class="card-title">Nombre: ${clases.nombre}</h5>
-    <p class="card-text"><p> Duracion: ${clases.duracion} </p>
+    <p> Duracion: ${clases.duracion} </p>
     <p> Frecuencia Semanal: ${clases.frecuenciaSemanal} </p>
     <p> Precio: $${clases.precio} </p>
   </div>
@@ -33,25 +35,45 @@ actividad.forEach(clases => {
   `
 })
 
+class Suscripcion{
+  constructor(nombre, apellido, actividad){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.actividad = actividad;
+  }
+}
+
 formulario.addEventListener('submit', (event) =>{
   event.preventDefault()
-  let nombre = document.getElementById('formNombre').value
-  let apellido = document.getElementById('formApellido').value
-  let seleccion = document.getElementById('actSelecionada').value
-  let alumnos = {nombre: nombre, apellido: apellido, seleccion: seleccion}
-  alumnoNuevo.push(alumnos)
-  console.log(alumnoNuevo)
+  let datosInsc = new FormData(event.target)
+  const nuevoAlumno = new Suscripcion(datosInsc.get('nombre'), datosInsc.get('apellido'), datosInsc.get('actividad'))
+  console.log(nuevoAlumno)
+  nuevaSusc.push(nuevoAlumno)
+  localStorage.setItem('NuevaSusc', JSON.stringify(nuevaSusc))
   
+  formulario.reset()
 })
-alumnoNuevo.forEach(inscripcion => {
-  divConfirm.innerHTML += `
-  <div class="card" "row conteiner" style="width: 18rem;">
+if(localStorage.getItem('NuevaSusc')){
+  nuevaSusc = JSON.parse(localStorage.getItem('NuevaSusc'))
+} else{
+  localStorage.setItem('NuevaSusc', JSON.stringify(nuevaSusc))
+}
+
+
+nuevaSusc.forEach(confirm => {
+  divConfirm.innerHTML +=`
   
+  <div class="card clasConfirm" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Nombre: ${inscripcion.nombre}</h5>
-    <p class="card-text"><p> Duracion: ${inscripcion.apellido} </p>
-    <p> Frecuencia Semanal: ${inscripcion.seleccion} </p>
+    <h5 class="card-title">Suscripcion Confirmada</h5>
+    <p> Duracion: ${confirm.nombre} </p>
+    <p> Duracion: ${confirm.apellido} </p>
+    <p> Se suscribio a : ${confirm.actividad} </p>
   </div>
 </div>
   `
 })
+
+
+
+
