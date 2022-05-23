@@ -26,14 +26,15 @@ h2{
 }
 #clases{
     display: flex;
+    
 }
 .clas{
+    justify-content: space-around;
     color: azure;
     font-size: 100%;
     font-weight: bold;
     justify-content: space-between;
     background-color: rgba(14, 14, 14, 0.753);
-    border: 25%;
     border-radius: 15%;
    
 }
