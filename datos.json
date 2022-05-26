@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "nombre": "Zumba",
+        "frecuenciaSemanal": "3 veces por semana",
+        "precio": 1600,
+        "imagen": "./imagenes/zumba.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "TaeBo",
+        "frecuenciaSemanal": "3 veces por semana",
+        "precio": 1800,
+        "imagen": "./imagenes/taebo.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Boxeo Recreativo",
+        "frecuenciaSemanal": "3 veces por semana",
+        "precio": 2300,
+        "imagen": "./imagenes/boxeo.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "CrossFit",
+        "frecuenciaSemanal": "libre",
+        "precio": 2500,
+        "imagen": "./imagenes/crossfit.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Sala de aparatos",
+        "frecuenciaSemanal": "libre",
+        "precio": 2000,
+        "imagen": "./imagenes/salaAparatos.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Funcional",
+        "frecuenciaSemanal": "3 veces por semana",
+        "precio": 1900,
+        "imagen": "./imagenes/funcional.jpg"
+    }
+]

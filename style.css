@@ -1,57 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 
-*{margin:0 ;
-padding: 0;}
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif, cursive;
+body {
+    font-family: 'Koulen', cursive !important;
     font-size: 100%;
     text-align: center;
+    text-transform: uppercase;
+}
+
+header {
+    text-align: center;
+    text-shadow: 3px 3px rgba(248, 4, 4, 0.733);
+}
+
+h1 {
+    font-family: 'Koulen', cursive !important;
+    font-size: 1000%;
 
 }
-header{
-    text-align: center;
- padding: 5%;
- 
-}
-.cuerpo{
-    background-image:url(./imagenes/fondoGym.jpg);
-    background-repeat: no-repeat;
-    background-position-x:center;
-    background-position-y:center;
-    background-size: 175%;
-}
-h2{
+h2 {
+    font-family: 'Koulen', cursive !important;
     padding-top: 5%;
     padding-bottom: 5%;
 }
-#clases{
+
+#clases {
     display: flex;
-    
-}
-.clas{
+    flex-wrap: wrap;
     justify-content: space-around;
-    color: azure;
-    font-size: 100%;
-    font-weight: bold;
-    justify-content: space-between;
-    background-color: rgba(14, 14, 14, 0.753);
-    border-radius: 15%;
-   
+    font-size: 200%;
+    color: black;
+    text-shadow: 0.5px 0.5px rgba(196, 8, 8, 0.582);
 }
-.clasConfirm{
-    color: azure;
-    background-color: rgba(196, 8, 8, 0.582);
-    border: 25%;
-    border-radius: 15%;
-    font-size: 100%;
-    font-weight: bold;
+#confirm {
+    font-size: 200%;
+    color: rgba(196, 8, 8, 0.582);
+    text-shadow: 1px 1px black;
 }
-.formulario{
- margin: 5%;
- background-color: rgba(48, 36, 36, 0.767);
+    
+.formConten {
+    background-image: url(./imagenes/fondoGym.jpg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: 175%;
+}
+#form{
+    font-size: 200%;
+    color: rgba(196, 8, 8, 0.582);
+    text-shadow: 1px 1px black;
+}
+.formulario {
+    margin: 5%;
+    background-color: rgba(0, 0, 0, 0.596);
 }
 
-footer{
+footer {
+    font-size: 300%;
     background-color: black;
     padding: 5%;
 }
