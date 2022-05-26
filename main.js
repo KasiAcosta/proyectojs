@@ -4,6 +4,9 @@ let formulario = document.getElementById("form");
 let divConfirm = document.getElementById("confirm");
 let btnConfirm = document.querySelector("#btnConfirm");
 
+//Constantes
+let nuevaSusc = []
+
 //Asincronismos
 fetch("./datos.json")
   .then((response) => response.json())
@@ -25,7 +28,7 @@ fetch("./datos.json")
     });
   });
 
-  //Interacción con el formulario suscripcion
+//Interacción con el formulario suscripcion
 class Suscripcion {
   constructor(nombre, apellido, actividad) {
     this.nombre = nombre;
@@ -46,15 +49,18 @@ formulario.addEventListener("submit", (event) => {
   localStorage.setItem("NuevaSusc", JSON.stringify(nuevaSusc));
   formulario.reset();
 });
-localStorage.getItem("NuevaSusc")
-  ? (nuevaSusc = JSON.parse(localStorage.getItem("NuevaSusc")))
-  : localStorage.setItem("NuevaSusc", JSON.stringify(nuevaSusc));
+localStorage.getItem("NuevaSusc") ?
+  (nuevaSusc = JSON.parse(localStorage.getItem("NuevaSusc"))) :
+  localStorage.setItem("NuevaSusc", JSON.stringify(nuevaSusc));
 
 function confirmacion() {
   nuevaSusc.forEach((confirm) => {
-    const { nombre, apellido, actividad } = confirm;
+    const {
+      nombre,
+      apellido,
+      actividad
+    } = confirm;
     divConfirm.innerHTML = `
-    
 <div class="panel panel-danger">
 <div class="panel-heading">
   <h4 class="panel-title">Nuevo Alumno</h4>
@@ -74,8 +80,3 @@ btnConfirm.addEventListener("click", () => {
 
 //Funcion
 confirmacion();
-
-
-
-
-
