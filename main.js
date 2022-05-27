@@ -4,7 +4,7 @@ let formulario = document.getElementById("form");
 let divConfirm = document.getElementById("confirm");
 let btnConfirm = document.querySelector("#btnConfirm");
 
-//Constantes
+//Variable
 let nuevaSusc = []
 
 //Asincronismos
@@ -53,6 +53,7 @@ localStorage.getItem("NuevaSusc") ?
   (nuevaSusc = JSON.parse(localStorage.getItem("NuevaSusc"))) :
   localStorage.setItem("NuevaSusc", JSON.stringify(nuevaSusc));
 
+//Funcion
 function confirmacion() {
   nuevaSusc.forEach((confirm) => {
     const {
@@ -77,6 +78,5 @@ function confirmacion() {
 btnConfirm.addEventListener("click", () => {
   Swal.fire("Bienvenid@", "Suscripcion completada", "success");
 });
-
-//Funcion
+//llamado a la funcion
 confirmacion();
